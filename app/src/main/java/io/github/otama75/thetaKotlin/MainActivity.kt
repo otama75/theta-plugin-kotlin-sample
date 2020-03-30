@@ -1,5 +1,6 @@
 package io.github.otama75.thetaKotlin
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
@@ -32,6 +33,7 @@ class MainActivity : PluginActivity() {
         // Setting Key Callback
         //
         class KotlinKeyCallback : KeyCallback {
+            @SuppressLint("SetTextI18n")
             override fun onKeyDown(keyCode: Int, event: KeyEvent?) {
                 if (keyCode == KeyReceiver.KEYCODE_CAMERA) {
                     if (count % 2 == 0) {
