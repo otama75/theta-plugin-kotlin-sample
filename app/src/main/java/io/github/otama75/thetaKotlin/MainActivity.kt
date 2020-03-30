@@ -1,7 +1,6 @@
 package io.github.otama75.thetaKotlin
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
 import com.theta360.pluginlibrary.activity.PluginActivity
