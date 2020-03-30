@@ -8,13 +8,13 @@ import com.theta360.pluginlibrary.callback.KeyCallback
 import com.theta360.pluginlibrary.receiver.KeyReceiver
 import com.theta360.pluginlibrary.values.LedColor
 import com.theta360.pluginlibrary.values.LedTarget
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : PluginActivity() {
     companion object {
         private val TAG = MainActivity::class.java.simpleName
-
     }
-    var blinkLed = false
+    var count = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,12 +34,12 @@ class MainActivity : PluginActivity() {
         class KotlinKeyCallback : KeyCallback {
             override fun onKeyDown(keyCode: Int, event: KeyEvent?) {
                 if (keyCode == KeyReceiver.KEYCODE_CAMERA) {
-                    if (blinkLed) {
+                    if (count % 2 == 0) {
                         notificationLedBlink(LedTarget.LED7, LedColor.BLUE, 300)
                     } else {
                         notificationLedHide(LedTarget.LED7)
                     }
-                    blinkLed = !blinkLed
+                    tvCounter.text = "Camera button pushed ${count++} times"
                 }
             }
             override fun onKeyUp(p0: Int, p1: KeyEvent?) {}
